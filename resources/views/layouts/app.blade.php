@@ -8,15 +8,27 @@
     <title>{{ $title }} - {{ config('app.name') }}</title>
     <meta name="description" content="{{ $description }}">
 
+    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="{{ $description }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@axeldotdev" />
+    <meta name="twitter:creator" content="@axeldotdev" />
+    <meta name="twitter:title" content="{{ $title }}" />
+    <meta name="twitter:description" content="{{ $description }}" />
+
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="antialiased">
+<body class="antialiased bg-gray-50">
     <x-navbar />
 
     {{ $slot }}
+
+    <x-footer />
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

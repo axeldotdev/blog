@@ -24,7 +24,8 @@ class Post
 
         $this->title = Str::between($file, 'title: ', PHP_EOL . 'description: ');
         $this->description = Str::between($file, 'description: ', PHP_EOL . 'category: ');
-        $this->category = Str::between($file, 'category: ', PHP_EOL . '----------');
+        $this->category = Str::between($file, 'category: ', PHP_EOL . 'published_at: ');
+        $this->published_at = Str::between($file, 'published_at: ', PHP_EOL . '----------');
         $this->content = Str::after($file, '----------' . PHP_EOL);
     }
 
@@ -37,11 +38,17 @@ class Post
             $posts->push(new static($slug));
         }
 
-        return $posts;
+        return $posts->sortByDesc('published_at');
     }
 
     public static function categories(): Collection
     {
         return static::all()->pluck('category')->unique();
+    }
+
+    public static function category(string $slug): Collection
+    {
+        return static::all()
+            ->filter(fn (Post $post) => Str::slug($post->category) === $slug);
     }
 }

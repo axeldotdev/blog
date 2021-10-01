@@ -14,7 +14,7 @@ return [
          *
          * More info: https://github.com/shikijs/shiki/blob/master/docs/themes.md
          */
-        'theme' => 'github-light',
+        'theme' => 'github-dark',
     ],
 
     /*
@@ -57,7 +57,7 @@ return [
      * More info: https://commonmark.thephpleague.com/2.0/extensions/overview/
      */
     'extensions' => [
-        //
+
     ],
 
     /*

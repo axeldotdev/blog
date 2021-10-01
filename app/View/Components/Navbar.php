@@ -2,13 +2,38 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
+use App\Models\Page;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
+use Illuminate\Contracts\View\View;
 
 class Navbar extends Component
 {
     public function render(): View
     {
-        return view('components.navbar', compact('links'));
+        return view('components.navbar', ['links' => $this->links()]);
+    }
+
+    private function links(): Collection
+    {
+        $links = new Collection([
+            (object) [
+                'name' => 'Home',
+                'url' => route('posts.index'),
+            ],
+        ]);
+
+        Page::all()->each(fn (Page $page) => $links->push((object) [
+            'name' => $page->title,
+            'url' => route('pages.show', Str::lower($page->title)),
+        ]));
+
+        \App\Models\Post::categories()->each(fn (string $category) => $links->push((object) [
+            'name' => $category,
+            'url' => route('posts.category', Str::slug($category)),
+        ]));
+
+        return $links;
     }
 }

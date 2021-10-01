@@ -2,13 +2,13 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Post extends Component
 {
     public function __construct(
-        public string $content,
+        public \App\Models\Page|\App\Models\Post $model,
     ) {
     }
 
