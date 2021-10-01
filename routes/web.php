@@ -6,4 +6,5 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 Route::get('/uses', [PageController::class, 'uses'])->name('pages.uses');
-Route::get('/{post_slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/about', [PageController::class, 'about'])->name('pages.about');
+Route::get('/{slug}', [PostController::class, 'show'])->name('posts.show');

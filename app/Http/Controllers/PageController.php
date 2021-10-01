@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use Illuminate\Contracts\View\View;
 
 class PageController extends Controller
 {
     public function uses(): View
     {
-        $title = 'Uses';
-        $description = 'The list of all my hardware and software setup.';
-        $content = file_get_contents(resource_path('pages/uses.md'));
+        return view('pages.show', ['page' => new Page('uses')]);
+    }
 
-        return view('pages.uses', compact('title', 'description', 'content'));
+    public function about(): View
+    {
+        return view('pages.show', ['page' => new Page('about')]);
     }
 }
