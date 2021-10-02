@@ -24,6 +24,14 @@
 </head>
 
 <body class="antialiased bg-gray-100 dark:bg-gray-800">
+    <header class="flex flex-col justify-center items-center pt-8 lg:pt-16">
+        <img class="inline-block h-14 w-14 rounded-full" src="/images/about/axel-charpentier.jpeg"
+            alt="Axel Charpentier">
+        <p class="mt-2 font-sans font-medium text-lg text-gray-900 dark:text-white">
+            Axeldotdev
+        </p>
+    </header>
+
     <x-navbar />
 
     {{ $slot }}
