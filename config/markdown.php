@@ -14,7 +14,7 @@ return [
          *
          * More info: https://github.com/shikijs/shiki/blob/master/docs/themes.md
          */
-        'theme' => 'github-dark',
+        'theme' => 'github-dark-dimmed',
     ],
 
     /*

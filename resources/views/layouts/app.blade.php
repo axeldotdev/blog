@@ -23,7 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="antialiased bg-gray-100">
+<body class="antialiased bg-gray-100 dark:bg-gray-800">
     <x-navbar />
 
     {{ $slot }}
