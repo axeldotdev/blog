@@ -1,6 +1,6 @@
-<article class="max-w-5xl mx-auto px-24">
-    <div class="px-24 py-12 bg-white rounded-lg shadow">
-        <div class="prose prose-lg prose-blue font-sans">
+<article class="max-w-5xl mx-auto lg:px-24">
+    <div class="p-8 lg:px-24 lg:py-12 bg-white lg:rounded-lg shadow">
+        <div class="prose prose-lg font-sans">
             @if ($model instanceof \App\Models\Post)
             <p class="flex items-center text-gray-500">
                 <span class="">

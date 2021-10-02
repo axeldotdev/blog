@@ -17,12 +17,7 @@ class Navbar extends Component
 
     private function links(): Collection
     {
-        $links = new Collection([
-            (object) [
-                'name' => 'Home',
-                'url' => route('posts.index'),
-            ],
-        ]);
+        $links = new Collection();
 
         Page::all()->each(fn (Page $page) => $links->push((object) [
             'name' => $page->title,
@@ -34,6 +29,16 @@ class Navbar extends Component
             'url' => route('posts.category', Str::slug($category)),
         ]));
 
-        return $links;
+        return $this->homeLink()->merge($links->sortBy('name'));
+    }
+
+    private function homeLink(): Collection
+    {
+        return new Collection([
+            (object) [
+                'name' => 'Home',
+                'url' => route('posts.index'),
+            ],
+        ]);
     }
 }

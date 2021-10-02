@@ -32,6 +32,6 @@ class Page
             $pages->push(new static($slug));
         }
 
-        return $pages;
+        return $pages->sortBy('title');
     }
 }

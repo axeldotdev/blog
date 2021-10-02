@@ -29,13 +29,22 @@ class Post
         $this->content = Str::after($file, '----------' . PHP_EOL);
     }
 
+    public function isPublished(): bool
+    {
+        return $this->published_at !== 'draft';
+    }
+
     public static function all(): Collection
     {
         $posts = new Collection();
 
         foreach (File::allFiles(resource_path(static::PATH)) as $file) {
             $slug = Str::replace('.md', '', $file->getFilename());
-            $posts->push(new static($slug));
+            $post = new static($slug);
+
+            if ($post->isPublished()) {
+                $posts->push($post);
+            }
         }
 
         return $posts->sortByDesc('published_at');

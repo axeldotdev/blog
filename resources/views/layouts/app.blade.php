@@ -23,13 +23,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="antialiased bg-gray-50">
+<body class="antialiased bg-gray-100">
     <x-navbar />
 
     {{ $slot }}
 
     <x-footer />
 
+    <script src="https://tarptaeya.github.io/repo-card/repo-card.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
