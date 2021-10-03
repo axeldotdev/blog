@@ -9,6 +9,9 @@
         "prod": "npm run production",
         "production": "mix --production"
     },
+    "dependencies": {
+        "shiki": "^0.9.11"
+    },
     "devDependencies": {
         "@tailwindcss/typography": "^0.4.1",
         "autoprefixer": "^10.3.6",
@@ -16,7 +19,6 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.3.8",
-        "shiki": "^0.9.11",
         "tailwindcss": "^2.2.16"
     }
 }
